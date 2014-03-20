@@ -53,6 +53,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # External Packages
+    'south',
+    'django_extensions',
+    # Local Packages
+    'mailarchive',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -96,15 +101,15 @@ TEMPLATE_DIRS = (
 if ON_OPENSHIFT:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(os.environ['OPENSHIFT_DATA_DIR'], 'db.sqlite3'),
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'jeroen',
         }
     }
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'jeroen',
         }
     }
 
